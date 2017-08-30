@@ -4,8 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean name="customerRepo" class="repository.HibernateCustomerRepositoryImpl"></bean>
-    <bean name="customerService" class="service.CustomerServiceImpl">
-        <property name="customerRepository" ref="customerRepo"/>
+    <!--setter injection sample-->
+    <!--<bean name="customerService" class="service.CustomerServiceImpl">-->
+        <!--<property name="customerRepository" ref="customerRepo"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean name="customerService" class="service.CustomerServiceImpl" autowire="constructor">-->
+    <!--<bean name="customerService" class="service.CustomerServiceImpl" autowire="byType">-->
+    <bean name="customerService" class="service.CustomerServiceImpl" autowire="byName">
+        <!--constructor injection sample-->
+        <!--<constructor-arg index="0" ref="customerRepo"/>-->
     </bean>
 
 
